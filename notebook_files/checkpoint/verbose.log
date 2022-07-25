@@ -1,0 +1,949 @@
+Command line
+python /Users/felix/opt/anaconda3/envs/vina/lib/python3.9/site-packages/ipykernel_launcher.py -f /Users/felix/Library/Jupyter/runtime/kernel-1ff7a5a5-b367-40bf-9c6e-25009bd62d21.json
+Args
+{'activation': 'ReLU',
+ 'adding_h': False,
+ 'aggregation': 'mean',
+ 'aggregation_norm': 100,
+ 'atom_descriptor_scaling': True,
+ 'atom_descriptors': None,
+ 'atom_descriptors_path': None,
+ 'atom_descriptors_size': 0,
+ 'atom_features_size': 0,
+ 'atom_messages': False,
+ 'batch_size': 50,
+ 'bias': False,
+ 'bias_solvent': False,
+ 'bond_feature_scaling': True,
+ 'bond_features_path': None,
+ 'bond_features_size': 0,
+ 'cache_cutoff': 10000,
+ 'checkpoint_dir': None,
+ 'checkpoint_frzn': None,
+ 'checkpoint_path': None,
+ 'checkpoint_paths': None,
+ 'class_balance': False,
+ 'config_path': 'notebook_files/hyperparameters.json',
+ 'crossval_index_dir': None,
+ 'crossval_index_file': None,
+ 'crossval_index_sets': None,
+ 'cuda': False,
+ 'data_path': 'notebook_files/train.csv',
+ 'data_weights_path': None,
+ 'dataset_type': 'classification',
+ 'depth': 2,
+ 'depth_solvent': 3,
+ 'device': device(type='cpu'),
+ 'dropout': 0.0,
+ 'empty_cache': False,
+ 'ensemble_size': 1,
+ 'epochs': 30,
+ 'evidential_regularization': 0,
+ 'explicit_h': False,
+ 'extra_metrics': [],
+ 'features_generator': ['rdkit_2d_normalized'],
+ 'features_only': False,
+ 'features_path': None,
+ 'features_scaling': False,
+ 'features_size': None,
+ 'ffn_hidden_size': 600,
+ 'ffn_num_layers': 3,
+ 'final_lr': 0.0001,
+ 'folds_file': None,
+ 'freeze_first_only': False,
+ 'frzn_ffn_layers': 0,
+ 'gpu': None,
+ 'grad_clip': None,
+ 'hidden_size': 600,
+ 'hidden_size_solvent': 300,
+ 'ignore_columns': None,
+ 'init_lr': 0.0001,
+ 'log_frequency': 10,
+ 'loss_function': 'binary_cross_entropy',
+ 'max_data_size': None,
+ 'max_lr': 0.001,
+ 'metric': 'auc',
+ 'metrics': ['auc'],
+ 'minimize_score': False,
+ 'mpn_shared': False,
+ 'multiclass_num_classes': 3,
+ 'no_atom_descriptor_scaling': False,
+ 'no_bond_features_scaling': False,
+ 'no_cache_mol': False,
+ 'no_cuda': False,
+ 'no_features_scaling': True,
+ 'num_folds': 1,
+ 'num_lrs': 1,
+ 'num_tasks': 1,
+ 'num_workers': 8,
+ 'number_of_molecules': 1,
+ 'overwrite_default_atom_features': False,
+ 'overwrite_default_bond_features': False,
+ 'phase_features_path': None,
+ 'pytorch_seed': 0,
+ 'quiet': False,
+ 'reaction': False,
+ 'reaction_mode': 'reac_diff',
+ 'reaction_solvent': False,
+ 'resume_experiment': False,
+ 'save_dir': 'notebook_files/checkpoint',
+ 'save_preds': False,
+ 'save_smiles_splits': False,
+ 'seed': 0,
+ 'separate_test_atom_descriptors_path': None,
+ 'separate_test_bond_features_path': None,
+ 'separate_test_features_path': None,
+ 'separate_test_path': None,
+ 'separate_test_phase_features_path': None,
+ 'separate_val_atom_descriptors_path': None,
+ 'separate_val_bond_features_path': None,
+ 'separate_val_features_path': None,
+ 'separate_val_path': None,
+ 'separate_val_phase_features_path': None,
+ 'show_individual_scores': False,
+ 'smiles_columns': ['\ufeffSMILES'],
+ 'spectra_activation': 'exp',
+ 'spectra_phase_mask_path': None,
+ 'spectra_target_floor': 1e-08,
+ 'split_key_molecule': 0,
+ 'split_sizes': [0.8, 0.1, 0.1],
+ 'split_type': 'random',
+ 'target_columns': None,
+ 'target_weights': None,
+ 'task_names': ['SENOLYTIC'],
+ 'test': False,
+ 'test_fold_index': None,
+ 'train_data_size': None,
+ 'undirected': False,
+ 'use_input_features': True,
+ 'val_fold_index': None,
+ 'warmup_epochs': 2.0}
+Setting molecule featurization parameters to default.
+Loading data
+Command line
+python /Users/felix/opt/anaconda3/envs/vina/lib/python3.9/site-packages/ipykernel_launcher.py -f /Users/felix/Library/Jupyter/runtime/kernel-1ff7a5a5-b367-40bf-9c6e-25009bd62d21.json
+Args
+{'activation': 'ReLU',
+ 'adding_h': False,
+ 'aggregation': 'mean',
+ 'aggregation_norm': 100,
+ 'atom_descriptor_scaling': True,
+ 'atom_descriptors': None,
+ 'atom_descriptors_path': None,
+ 'atom_descriptors_size': 0,
+ 'atom_features_size': 0,
+ 'atom_messages': False,
+ 'batch_size': 50,
+ 'bias': False,
+ 'bias_solvent': False,
+ 'bond_feature_scaling': True,
+ 'bond_features_path': None,
+ 'bond_features_size': 0,
+ 'cache_cutoff': 10000,
+ 'checkpoint_dir': None,
+ 'checkpoint_frzn': None,
+ 'checkpoint_path': None,
+ 'checkpoint_paths': None,
+ 'class_balance': False,
+ 'config_path': 'notebook_files/hyperparameters.json',
+ 'crossval_index_dir': None,
+ 'crossval_index_file': None,
+ 'crossval_index_sets': None,
+ 'cuda': False,
+ 'data_path': 'notebook_files/train.csv',
+ 'data_weights_path': None,
+ 'dataset_type': 'classification',
+ 'depth': 2,
+ 'depth_solvent': 3,
+ 'device': device(type='cpu'),
+ 'dropout': 0.0,
+ 'empty_cache': False,
+ 'ensemble_size': 1,
+ 'epochs': 30,
+ 'evidential_regularization': 0,
+ 'explicit_h': False,
+ 'extra_metrics': [],
+ 'features_generator': ['rdkit_2d_normalized'],
+ 'features_only': False,
+ 'features_path': None,
+ 'features_scaling': False,
+ 'features_size': None,
+ 'ffn_hidden_size': 600,
+ 'ffn_num_layers': 3,
+ 'final_lr': 0.0001,
+ 'folds_file': None,
+ 'freeze_first_only': False,
+ 'frzn_ffn_layers': 0,
+ 'gpu': None,
+ 'grad_clip': None,
+ 'hidden_size': 600,
+ 'hidden_size_solvent': 300,
+ 'ignore_columns': None,
+ 'init_lr': 0.0001,
+ 'log_frequency': 10,
+ 'loss_function': 'binary_cross_entropy',
+ 'max_data_size': None,
+ 'max_lr': 0.001,
+ 'metric': 'auc',
+ 'metrics': ['auc'],
+ 'minimize_score': False,
+ 'mpn_shared': False,
+ 'multiclass_num_classes': 3,
+ 'no_atom_descriptor_scaling': False,
+ 'no_bond_features_scaling': False,
+ 'no_cache_mol': False,
+ 'no_cuda': False,
+ 'no_features_scaling': True,
+ 'num_folds': 1,
+ 'num_lrs': 1,
+ 'num_tasks': 1,
+ 'num_workers': 8,
+ 'number_of_molecules': 1,
+ 'overwrite_default_atom_features': False,
+ 'overwrite_default_bond_features': False,
+ 'phase_features_path': None,
+ 'pytorch_seed': 0,
+ 'quiet': False,
+ 'reaction': False,
+ 'reaction_mode': 'reac_diff',
+ 'reaction_solvent': False,
+ 'resume_experiment': False,
+ 'save_dir': 'notebook_files/checkpoint',
+ 'save_preds': False,
+ 'save_smiles_splits': False,
+ 'seed': 0,
+ 'separate_test_atom_descriptors_path': None,
+ 'separate_test_bond_features_path': None,
+ 'separate_test_features_path': None,
+ 'separate_test_path': None,
+ 'separate_test_phase_features_path': None,
+ 'separate_val_atom_descriptors_path': None,
+ 'separate_val_bond_features_path': None,
+ 'separate_val_features_path': None,
+ 'separate_val_path': None,
+ 'separate_val_phase_features_path': None,
+ 'show_individual_scores': False,
+ 'smiles_columns': ['\ufeffSMILES'],
+ 'spectra_activation': 'exp',
+ 'spectra_phase_mask_path': None,
+ 'spectra_target_floor': 1e-08,
+ 'split_key_molecule': 0,
+ 'split_sizes': [0.8, 0.1, 0.1],
+ 'split_type': 'random',
+ 'target_columns': None,
+ 'target_weights': None,
+ 'task_names': ['SENOLYTIC'],
+ 'test': False,
+ 'test_fold_index': None,
+ 'train_data_size': None,
+ 'undirected': False,
+ 'use_input_features': True,
+ 'val_fold_index': None,
+ 'warmup_epochs': 2.0}
+Setting molecule featurization parameters to default.
+Loading data
+Command line
+python /Users/felix/opt/anaconda3/envs/vina/lib/python3.9/site-packages/ipykernel_launcher.py -f /Users/felix/Library/Jupyter/runtime/kernel-1ff7a5a5-b367-40bf-9c6e-25009bd62d21.json
+Args
+{'activation': 'ReLU',
+ 'adding_h': False,
+ 'aggregation': 'mean',
+ 'aggregation_norm': 100,
+ 'atom_descriptor_scaling': True,
+ 'atom_descriptors': None,
+ 'atom_descriptors_path': None,
+ 'atom_descriptors_size': 0,
+ 'atom_features_size': 0,
+ 'atom_messages': False,
+ 'batch_size': 50,
+ 'bias': False,
+ 'bias_solvent': False,
+ 'bond_feature_scaling': True,
+ 'bond_features_path': None,
+ 'bond_features_size': 0,
+ 'cache_cutoff': 10000,
+ 'checkpoint_dir': None,
+ 'checkpoint_frzn': None,
+ 'checkpoint_path': None,
+ 'checkpoint_paths': None,
+ 'class_balance': False,
+ 'config_path': 'notebook_files/hyperparameters.json',
+ 'crossval_index_dir': None,
+ 'crossval_index_file': None,
+ 'crossval_index_sets': None,
+ 'cuda': False,
+ 'data_path': 'notebook_files/train.csv',
+ 'data_weights_path': None,
+ 'dataset_type': 'classification',
+ 'depth': 2,
+ 'depth_solvent': 3,
+ 'device': device(type='cpu'),
+ 'dropout': 0.0,
+ 'empty_cache': False,
+ 'ensemble_size': 1,
+ 'epochs': 30,
+ 'evidential_regularization': 0,
+ 'explicit_h': False,
+ 'extra_metrics': [],
+ 'features_generator': ['rdkit_2d_normalized'],
+ 'features_only': False,
+ 'features_path': None,
+ 'features_scaling': False,
+ 'features_size': None,
+ 'ffn_hidden_size': 600,
+ 'ffn_num_layers': 3,
+ 'final_lr': 0.0001,
+ 'folds_file': None,
+ 'freeze_first_only': False,
+ 'frzn_ffn_layers': 0,
+ 'gpu': None,
+ 'grad_clip': None,
+ 'hidden_size': 600,
+ 'hidden_size_solvent': 300,
+ 'ignore_columns': None,
+ 'init_lr': 0.0001,
+ 'log_frequency': 10,
+ 'loss_function': 'binary_cross_entropy',
+ 'max_data_size': None,
+ 'max_lr': 0.001,
+ 'metric': 'auc',
+ 'metrics': ['auc'],
+ 'minimize_score': False,
+ 'mpn_shared': False,
+ 'multiclass_num_classes': 3,
+ 'no_atom_descriptor_scaling': False,
+ 'no_bond_features_scaling': False,
+ 'no_cache_mol': False,
+ 'no_cuda': False,
+ 'no_features_scaling': True,
+ 'num_folds': 1,
+ 'num_lrs': 1,
+ 'num_tasks': 1,
+ 'num_workers': 8,
+ 'number_of_molecules': 1,
+ 'overwrite_default_atom_features': False,
+ 'overwrite_default_bond_features': False,
+ 'phase_features_path': None,
+ 'pytorch_seed': 0,
+ 'quiet': False,
+ 'reaction': False,
+ 'reaction_mode': 'reac_diff',
+ 'reaction_solvent': False,
+ 'resume_experiment': False,
+ 'save_dir': 'notebook_files/checkpoint',
+ 'save_preds': False,
+ 'save_smiles_splits': False,
+ 'seed': 0,
+ 'separate_test_atom_descriptors_path': None,
+ 'separate_test_bond_features_path': None,
+ 'separate_test_features_path': None,
+ 'separate_test_path': None,
+ 'separate_test_phase_features_path': None,
+ 'separate_val_atom_descriptors_path': None,
+ 'separate_val_bond_features_path': None,
+ 'separate_val_features_path': None,
+ 'separate_val_path': None,
+ 'separate_val_phase_features_path': None,
+ 'show_individual_scores': False,
+ 'smiles_columns': ['\ufeffSMILES'],
+ 'spectra_activation': 'exp',
+ 'spectra_phase_mask_path': None,
+ 'spectra_target_floor': 1e-08,
+ 'split_key_molecule': 0,
+ 'split_sizes': [0.8, 0.1, 0.1],
+ 'split_type': 'random',
+ 'target_columns': None,
+ 'target_weights': None,
+ 'task_names': ['SENOLYTIC'],
+ 'test': False,
+ 'test_fold_index': None,
+ 'train_data_size': None,
+ 'undirected': False,
+ 'use_input_features': True,
+ 'val_fold_index': None,
+ 'warmup_epochs': 2.0}
+Setting molecule featurization parameters to default.
+Loading data
+Command line
+python /Users/felix/opt/anaconda3/envs/vina/lib/python3.9/site-packages/ipykernel_launcher.py -f /Users/felix/Library/Jupyter/runtime/kernel-1ff7a5a5-b367-40bf-9c6e-25009bd62d21.json
+Args
+{'activation': 'ReLU',
+ 'adding_h': False,
+ 'aggregation': 'mean',
+ 'aggregation_norm': 100,
+ 'atom_descriptor_scaling': True,
+ 'atom_descriptors': None,
+ 'atom_descriptors_path': None,
+ 'atom_descriptors_size': 0,
+ 'atom_features_size': 0,
+ 'atom_messages': False,
+ 'batch_size': 50,
+ 'bias': False,
+ 'bias_solvent': False,
+ 'bond_feature_scaling': True,
+ 'bond_features_path': None,
+ 'bond_features_size': 0,
+ 'cache_cutoff': 10000,
+ 'checkpoint_dir': None,
+ 'checkpoint_frzn': None,
+ 'checkpoint_path': None,
+ 'checkpoint_paths': None,
+ 'class_balance': False,
+ 'config_path': 'notebook_files/hyperparameters.json',
+ 'crossval_index_dir': None,
+ 'crossval_index_file': None,
+ 'crossval_index_sets': None,
+ 'cuda': False,
+ 'data_path': 'notebook_files/train.csv',
+ 'data_weights_path': None,
+ 'dataset_type': 'classification',
+ 'depth': 2,
+ 'depth_solvent': 3,
+ 'device': device(type='cpu'),
+ 'dropout': 0.0,
+ 'empty_cache': False,
+ 'ensemble_size': 1,
+ 'epochs': 30,
+ 'evidential_regularization': 0,
+ 'explicit_h': False,
+ 'extra_metrics': [],
+ 'features_generator': ['rdkit_2d_normalized'],
+ 'features_only': False,
+ 'features_path': None,
+ 'features_scaling': False,
+ 'features_size': None,
+ 'ffn_hidden_size': 600,
+ 'ffn_num_layers': 3,
+ 'final_lr': 0.0001,
+ 'folds_file': None,
+ 'freeze_first_only': False,
+ 'frzn_ffn_layers': 0,
+ 'gpu': None,
+ 'grad_clip': None,
+ 'hidden_size': 600,
+ 'hidden_size_solvent': 300,
+ 'ignore_columns': None,
+ 'init_lr': 0.0001,
+ 'log_frequency': 10,
+ 'loss_function': 'binary_cross_entropy',
+ 'max_data_size': None,
+ 'max_lr': 0.001,
+ 'metric': 'auc',
+ 'metrics': ['auc'],
+ 'minimize_score': False,
+ 'mpn_shared': False,
+ 'multiclass_num_classes': 3,
+ 'no_atom_descriptor_scaling': False,
+ 'no_bond_features_scaling': False,
+ 'no_cache_mol': False,
+ 'no_cuda': False,
+ 'no_features_scaling': True,
+ 'num_folds': 1,
+ 'num_lrs': 1,
+ 'num_tasks': 1,
+ 'num_workers': 8,
+ 'number_of_molecules': 1,
+ 'overwrite_default_atom_features': False,
+ 'overwrite_default_bond_features': False,
+ 'phase_features_path': None,
+ 'pytorch_seed': 0,
+ 'quiet': False,
+ 'reaction': False,
+ 'reaction_mode': 'reac_diff',
+ 'reaction_solvent': False,
+ 'resume_experiment': False,
+ 'save_dir': 'notebook_files/checkpoint',
+ 'save_preds': False,
+ 'save_smiles_splits': False,
+ 'seed': 0,
+ 'separate_test_atom_descriptors_path': None,
+ 'separate_test_bond_features_path': None,
+ 'separate_test_features_path': None,
+ 'separate_test_path': None,
+ 'separate_test_phase_features_path': None,
+ 'separate_val_atom_descriptors_path': None,
+ 'separate_val_bond_features_path': None,
+ 'separate_val_features_path': None,
+ 'separate_val_path': None,
+ 'separate_val_phase_features_path': None,
+ 'show_individual_scores': False,
+ 'smiles_columns': ['\ufeffSMILES'],
+ 'spectra_activation': 'exp',
+ 'spectra_phase_mask_path': None,
+ 'spectra_target_floor': 1e-08,
+ 'split_key_molecule': 0,
+ 'split_sizes': [0.8, 0.1, 0.1],
+ 'split_type': 'random',
+ 'target_columns': None,
+ 'target_weights': None,
+ 'task_names': ['SENOLYTIC'],
+ 'test': False,
+ 'test_fold_index': None,
+ 'train_data_size': None,
+ 'undirected': False,
+ 'use_input_features': True,
+ 'val_fold_index': None,
+ 'warmup_epochs': 2.0}
+Setting molecule featurization parameters to default.
+Loading data
+Command line
+python /Users/felix/opt/anaconda3/envs/vina/lib/python3.9/site-packages/ipykernel_launcher.py -f /Users/felix/Library/Jupyter/runtime/kernel-1ff7a5a5-b367-40bf-9c6e-25009bd62d21.json
+Args
+{'activation': 'ReLU',
+ 'adding_h': False,
+ 'aggregation': 'mean',
+ 'aggregation_norm': 100,
+ 'atom_descriptor_scaling': True,
+ 'atom_descriptors': None,
+ 'atom_descriptors_path': None,
+ 'atom_descriptors_size': 0,
+ 'atom_features_size': 0,
+ 'atom_messages': False,
+ 'batch_size': 50,
+ 'bias': False,
+ 'bias_solvent': False,
+ 'bond_feature_scaling': True,
+ 'bond_features_path': None,
+ 'bond_features_size': 0,
+ 'cache_cutoff': 10000,
+ 'checkpoint_dir': None,
+ 'checkpoint_frzn': None,
+ 'checkpoint_path': None,
+ 'checkpoint_paths': None,
+ 'class_balance': False,
+ 'config_path': 'notebook_files/hyperparameters.json',
+ 'crossval_index_dir': None,
+ 'crossval_index_file': None,
+ 'crossval_index_sets': None,
+ 'cuda': False,
+ 'data_path': 'notebook_files/train.csv',
+ 'data_weights_path': None,
+ 'dataset_type': 'classification',
+ 'depth': 2,
+ 'depth_solvent': 3,
+ 'device': device(type='cpu'),
+ 'dropout': 0.0,
+ 'empty_cache': False,
+ 'ensemble_size': 1,
+ 'epochs': 30,
+ 'evidential_regularization': 0,
+ 'explicit_h': False,
+ 'extra_metrics': [],
+ 'features_generator': ['rdkit_2d_normalized'],
+ 'features_only': False,
+ 'features_path': None,
+ 'features_scaling': False,
+ 'features_size': None,
+ 'ffn_hidden_size': 600,
+ 'ffn_num_layers': 3,
+ 'final_lr': 0.0001,
+ 'folds_file': None,
+ 'freeze_first_only': False,
+ 'frzn_ffn_layers': 0,
+ 'gpu': None,
+ 'grad_clip': None,
+ 'hidden_size': 600,
+ 'hidden_size_solvent': 300,
+ 'ignore_columns': None,
+ 'init_lr': 0.0001,
+ 'log_frequency': 10,
+ 'loss_function': 'binary_cross_entropy',
+ 'max_data_size': None,
+ 'max_lr': 0.001,
+ 'metric': 'auc',
+ 'metrics': ['auc'],
+ 'minimize_score': False,
+ 'mpn_shared': False,
+ 'multiclass_num_classes': 3,
+ 'no_atom_descriptor_scaling': False,
+ 'no_bond_features_scaling': False,
+ 'no_cache_mol': False,
+ 'no_cuda': False,
+ 'no_features_scaling': True,
+ 'num_folds': 1,
+ 'num_lrs': 1,
+ 'num_tasks': 1,
+ 'num_workers': 8,
+ 'number_of_molecules': 1,
+ 'overwrite_default_atom_features': False,
+ 'overwrite_default_bond_features': False,
+ 'phase_features_path': None,
+ 'pytorch_seed': 0,
+ 'quiet': False,
+ 'reaction': False,
+ 'reaction_mode': 'reac_diff',
+ 'reaction_solvent': False,
+ 'resume_experiment': False,
+ 'save_dir': 'notebook_files/checkpoint',
+ 'save_preds': False,
+ 'save_smiles_splits': False,
+ 'seed': 0,
+ 'separate_test_atom_descriptors_path': None,
+ 'separate_test_bond_features_path': None,
+ 'separate_test_features_path': None,
+ 'separate_test_path': None,
+ 'separate_test_phase_features_path': None,
+ 'separate_val_atom_descriptors_path': None,
+ 'separate_val_bond_features_path': None,
+ 'separate_val_features_path': None,
+ 'separate_val_path': None,
+ 'separate_val_phase_features_path': None,
+ 'show_individual_scores': False,
+ 'smiles_columns': ['\ufeffSMILES'],
+ 'spectra_activation': 'exp',
+ 'spectra_phase_mask_path': None,
+ 'spectra_target_floor': 1e-08,
+ 'split_key_molecule': 0,
+ 'split_sizes': [0.8, 0.1, 0.1],
+ 'split_type': 'random',
+ 'target_columns': None,
+ 'target_weights': None,
+ 'task_names': ['SENOLYTIC'],
+ 'test': False,
+ 'test_fold_index': None,
+ 'train_data_size': None,
+ 'undirected': False,
+ 'use_input_features': True,
+ 'val_fold_index': None,
+ 'warmup_epochs': 2.0}
+Setting molecule featurization parameters to default.
+Loading data
+Command line
+python /Users/felix/opt/anaconda3/envs/chemprop/bin/chemprop_train --data_path notebook_files/train.csv --dataset_type classification --config_path notebook_files/hyperparameters.json --save_dir notebook_files/checkpoint --ensemble_size 1 --features_generator rdkit_2d_normalized --no_features_scaling
+Args
+{'activation': 'ReLU',
+ 'aggregation': 'mean',
+ 'aggregation_norm': 100,
+ 'alternative_loss_function': None,
+ 'atom_descriptor_scaling': True,
+ 'atom_descriptors': None,
+ 'atom_descriptors_path': None,
+ 'atom_descriptors_size': 0,
+ 'atom_features_size': 0,
+ 'atom_messages': False,
+ 'batch_size': 50,
+ 'bias': False,
+ 'bond_feature_scaling': True,
+ 'bond_features_path': None,
+ 'bond_features_size': 0,
+ 'cache_cutoff': 10000,
+ 'checkpoint_dir': None,
+ 'checkpoint_frzn': None,
+ 'checkpoint_path': None,
+ 'checkpoint_paths': None,
+ 'class_balance': False,
+ 'config_path': 'notebook_files/hyperparameters.json',
+ 'crossval_index_dir': None,
+ 'crossval_index_file': None,
+ 'crossval_index_sets': None,
+ 'cuda': False,
+ 'data_path': 'notebook_files/train.csv',
+ 'data_weights_path': None,
+ 'dataset_type': 'classification',
+ 'depth': 2,
+ 'device': device(type='cpu'),
+ 'dropout': 0.0,
+ 'empty_cache': False,
+ 'ensemble_size': 1,
+ 'epochs': 30,
+ 'explicit_h': False,
+ 'extra_metrics': [],
+ 'features_generator': ['rdkit_2d_normalized'],
+ 'features_only': False,
+ 'features_path': None,
+ 'features_scaling': False,
+ 'features_size': None,
+ 'ffn_hidden_size': 600,
+ 'ffn_num_layers': 3,
+ 'final_lr': 0.0001,
+ 'folds_file': None,
+ 'freeze_first_only': False,
+ 'frzn_ffn_layers': 0,
+ 'gpu': None,
+ 'grad_clip': None,
+ 'hidden_size': 600,
+ 'ignore_columns': None,
+ 'init_lr': 0.0001,
+ 'log_frequency': 10,
+ 'max_data_size': None,
+ 'max_lr': 0.001,
+ 'metric': 'auc',
+ 'metrics': ['auc'],
+ 'minimize_score': False,
+ 'mpn_shared': False,
+ 'multiclass_num_classes': 3,
+ 'no_atom_descriptor_scaling': False,
+ 'no_bond_features_scaling': False,
+ 'no_cache_mol': False,
+ 'no_cuda': False,
+ 'no_features_scaling': True,
+ 'num_folds': 1,
+ 'num_lrs': 1,
+ 'num_tasks': 1,
+ 'num_workers': 8,
+ 'number_of_molecules': 1,
+ 'overwrite_default_atom_features': False,
+ 'overwrite_default_bond_features': False,
+ 'phase_features_path': None,
+ 'pytorch_seed': 0,
+ 'quiet': False,
+ 'reaction': False,
+ 'reaction_mode': 'reac_diff',
+ 'resume_experiment': False,
+ 'save_dir': 'notebook_files/checkpoint',
+ 'save_preds': False,
+ 'save_smiles_splits': False,
+ 'seed': 0,
+ 'separate_test_atom_descriptors_path': None,
+ 'separate_test_bond_features_path': None,
+ 'separate_test_features_path': None,
+ 'separate_test_path': None,
+ 'separate_test_phase_features_path': None,
+ 'separate_val_atom_descriptors_path': None,
+ 'separate_val_bond_features_path': None,
+ 'separate_val_features_path': None,
+ 'separate_val_path': None,
+ 'separate_val_phase_features_path': None,
+ 'show_individual_scores': False,
+ 'smiles_columns': ['\ufeffSMILES'],
+ 'spectra_activation': 'exp',
+ 'spectra_phase_mask_path': None,
+ 'spectra_target_floor': 1e-08,
+ 'split_sizes': (0.8, 0.1, 0.1),
+ 'split_type': 'random',
+ 'target_columns': None,
+ 'target_weights': None,
+ 'task_names': ['SENOLYTIC'],
+ 'test': False,
+ 'test_fold_index': None,
+ 'train_data_size': None,
+ 'undirected': False,
+ 'use_input_features': True,
+ 'val_fold_index': None,
+ 'warmup_epochs': 2.0}
+Setting molecule featurization parameters to default.
+Loading data
+Number of tasks = 1
+Fold 0
+Splitting data with seed 0
+Class sizes
+SENOLYTIC 0: 98.09%, 1: 1.91%
+Total size = 2,352 | train size = 1,881 | val size = 235 | test size = 236
+Building model 0
+MoleculeModel(
+  (sigmoid): Sigmoid()
+  (encoder): MPN(
+    (encoder): ModuleList(
+      (0): MPNEncoder(
+        (dropout_layer): Dropout(p=0.0, inplace=False)
+        (act_func): ReLU()
+        (W_i): Linear(in_features=147, out_features=600, bias=False)
+        (W_h): Linear(in_features=600, out_features=600, bias=False)
+        (W_o): Linear(in_features=733, out_features=600, bias=True)
+      )
+    )
+  )
+  (ffn): Sequential(
+    (0): Dropout(p=0.0, inplace=False)
+    (1): Linear(in_features=800, out_features=600, bias=True)
+    (2): ReLU()
+    (3): Dropout(p=0.0, inplace=False)
+    (4): Linear(in_features=600, out_features=600, bias=True)
+    (5): ReLU()
+    (6): Dropout(p=0.0, inplace=False)
+    (7): Linear(in_features=600, out_features=1, bias=True)
+  )
+)
+Number of parameters = 1,731,001
+Epoch 0
+Loss = 2.7293e-01, PNorm = 52.7591, GNorm = 0.5573, lr_0 = 2.3378e-04
+Loss = 1.3863e-01, PNorm = 52.7769, GNorm = 0.0390, lr_0 = 3.5541e-04
+Loss = 1.6213e-01, PNorm = 52.7851, GNorm = 0.1459, lr_0 = 4.7703e-04
+Validation auc = 0.415584
+Epoch 1
+Loss = 6.5917e-02, PNorm = 52.8219, GNorm = 0.0963, lr_0 = 6.1081e-04
+Loss = 1.1197e-01, PNorm = 52.8375, GNorm = 0.1479, lr_0 = 7.3243e-04
+Loss = 1.2145e-01, PNorm = 52.8839, GNorm = 0.6195, lr_0 = 8.5405e-04
+Loss = 5.8090e-02, PNorm = 52.9504, GNorm = 0.1176, lr_0 = 9.7568e-04
+Validation auc = 0.744589
+Epoch 2
+Loss = 1.2168e-01, PNorm = 52.9895, GNorm = 0.1873, lr_0 = 9.8238e-04
+Loss = 9.2229e-02, PNorm = 53.0779, GNorm = 0.3746, lr_0 = 9.6078e-04
+Loss = 6.5127e-02, PNorm = 53.1394, GNorm = 0.1254, lr_0 = 9.3966e-04
+Loss = 7.7366e-02, PNorm = 53.1823, GNorm = 0.1842, lr_0 = 9.1901e-04
+Validation auc = 0.784632
+Epoch 3
+Loss = 8.2440e-02, PNorm = 53.2561, GNorm = 0.4148, lr_0 = 8.9681e-04
+Loss = 8.4577e-02, PNorm = 53.3167, GNorm = 0.1641, lr_0 = 8.7710e-04
+Loss = 6.7267e-02, PNorm = 53.3820, GNorm = 0.1814, lr_0 = 8.5782e-04
+Loss = 6.9376e-02, PNorm = 53.4482, GNorm = 0.2627, lr_0 = 8.3897e-04
+Validation auc = 0.792208
+Epoch 4
+Loss = 5.9091e-02, PNorm = 53.5296, GNorm = 0.2265, lr_0 = 8.2053e-04
+Loss = 8.1418e-02, PNorm = 53.6079, GNorm = 0.1168, lr_0 = 8.0249e-04
+Loss = 4.9421e-02, PNorm = 53.6631, GNorm = 0.1953, lr_0 = 7.8485e-04
+Validation auc = 0.781385
+Epoch 5
+Loss = 6.5729e-02, PNorm = 53.7127, GNorm = 0.1592, lr_0 = 7.6760e-04
+Loss = 4.6857e-02, PNorm = 53.7900, GNorm = 0.0462, lr_0 = 7.5073e-04
+Loss = 6.8831e-02, PNorm = 53.8408, GNorm = 0.1788, lr_0 = 7.3423e-04
+Loss = 7.7740e-02, PNorm = 53.8839, GNorm = 0.1632, lr_0 = 7.1809e-04
+Validation auc = 0.821429
+Epoch 6
+Loss = 1.0248e-02, PNorm = 53.9787, GNorm = 0.0269, lr_0 = 7.0074e-04
+Loss = 7.9444e-02, PNorm = 53.9929, GNorm = 0.0996, lr_0 = 6.8534e-04
+Loss = 3.7872e-02, PNorm = 54.0517, GNorm = 0.1683, lr_0 = 6.7028e-04
+Loss = 8.5063e-02, PNorm = 54.1025, GNorm = 0.1936, lr_0 = 6.5554e-04
+Validation auc = 0.808442
+Epoch 7
+Loss = 3.0229e-02, PNorm = 54.1861, GNorm = 0.0473, lr_0 = 6.4114e-04
+Loss = 6.9525e-02, PNorm = 54.2064, GNorm = 0.2042, lr_0 = 6.2704e-04
+Loss = 5.1295e-02, PNorm = 54.2750, GNorm = 0.2952, lr_0 = 6.1326e-04
+Loss = 5.6822e-02, PNorm = 54.2984, GNorm = 0.1236, lr_0 = 5.9978e-04
+Loss = 1.2951e-01, PNorm = 54.2996, GNorm = 0.5251, lr_0 = 5.9845e-04
+Validation auc = 0.819264
+Epoch 8
+Loss = 5.1058e-02, PNorm = 54.3473, GNorm = 0.2207, lr_0 = 5.8529e-04
+Loss = 4.1749e-02, PNorm = 54.4010, GNorm = 0.1657, lr_0 = 5.7243e-04
+Loss = 4.4345e-02, PNorm = 54.4440, GNorm = 0.2669, lr_0 = 5.5985e-04
+Validation auc = 0.808442
+Epoch 9
+Loss = 3.4560e-02, PNorm = 54.4630, GNorm = 0.1052, lr_0 = 5.4754e-04
+Loss = 3.8859e-02, PNorm = 54.4995, GNorm = 0.0293, lr_0 = 5.3551e-04
+Loss = 4.3607e-02, PNorm = 54.5342, GNorm = 0.2398, lr_0 = 5.2374e-04
+Loss = 4.5976e-02, PNorm = 54.5755, GNorm = 0.1182, lr_0 = 5.1222e-04
+Validation auc = 0.798701
+Epoch 10
+Loss = 4.5689e-02, PNorm = 54.5980, GNorm = 0.3064, lr_0 = 5.0096e-04
+Loss = 3.0576e-02, PNorm = 54.6251, GNorm = 0.0875, lr_0 = 4.8995e-04
+Loss = 3.9454e-02, PNorm = 54.6620, GNorm = 0.2505, lr_0 = 4.7918e-04
+Loss = 5.2270e-02, PNorm = 54.6862, GNorm = 0.1145, lr_0 = 4.6865e-04
+Validation auc = 0.819264
+Epoch 11
+Loss = 4.0428e-02, PNorm = 54.7296, GNorm = 0.1281, lr_0 = 4.5733e-04
+Loss = 2.9789e-02, PNorm = 54.7592, GNorm = 0.2076, lr_0 = 4.4728e-04
+Loss = 2.3497e-02, PNorm = 54.7973, GNorm = 0.2139, lr_0 = 4.3745e-04
+Loss = 4.8135e-02, PNorm = 54.8070, GNorm = 0.5160, lr_0 = 4.2783e-04
+Validation auc = 0.800866
+Epoch 12
+Loss = 3.3050e-02, PNorm = 54.8362, GNorm = 0.2486, lr_0 = 4.1843e-04
+Loss = 2.1585e-02, PNorm = 54.8696, GNorm = 0.0132, lr_0 = 4.0923e-04
+Loss = 3.8341e-02, PNorm = 54.8758, GNorm = 0.2038, lr_0 = 4.0024e-04
+Validation auc = 0.832251
+Epoch 13
+Loss = 2.5121e-02, PNorm = 54.9104, GNorm = 0.2968, lr_0 = 3.9144e-04
+Loss = 2.9696e-02, PNorm = 54.9369, GNorm = 0.2053, lr_0 = 3.8283e-04
+Loss = 1.9012e-02, PNorm = 54.9672, GNorm = 0.1928, lr_0 = 3.7442e-04
+Loss = 5.0953e-02, PNorm = 54.9773, GNorm = 0.4282, lr_0 = 3.6619e-04
+Validation auc = 0.812771
+Epoch 14
+Loss = 3.6156e-02, PNorm = 55.0029, GNorm = 0.3406, lr_0 = 3.5735e-04
+Loss = 2.1339e-02, PNorm = 55.0327, GNorm = 1.1690, lr_0 = 3.4949e-04
+Loss = 2.5532e-02, PNorm = 55.0440, GNorm = 0.1150, lr_0 = 3.4181e-04
+Loss = 3.6495e-02, PNorm = 55.0676, GNorm = 0.3096, lr_0 = 3.3430e-04
+Validation auc = 0.819264
+Epoch 15
+Loss = 3.4307e-02, PNorm = 55.0855, GNorm = 0.2187, lr_0 = 3.2695e-04
+Loss = 3.2126e-02, PNorm = 55.1069, GNorm = 0.5945, lr_0 = 3.1976e-04
+Loss = 1.6870e-02, PNorm = 55.1168, GNorm = 0.0184, lr_0 = 3.1273e-04
+Loss = 2.9520e-02, PNorm = 55.1257, GNorm = 0.2275, lr_0 = 3.0586e-04
+Validation auc = 0.797619
+Epoch 16
+Loss = 2.3799e-02, PNorm = 55.1452, GNorm = 0.2996, lr_0 = 2.9847e-04
+Loss = 3.0081e-02, PNorm = 55.1613, GNorm = 0.4542, lr_0 = 2.9191e-04
+Loss = 3.2605e-02, PNorm = 55.1782, GNorm = 0.1895, lr_0 = 2.8549e-04
+Validation auc = 0.825758
+Epoch 17
+Loss = 2.4652e-03, PNorm = 55.2038, GNorm = 0.0360, lr_0 = 2.7922e-04
+Loss = 3.3812e-02, PNorm = 55.2093, GNorm = 0.1212, lr_0 = 2.7308e-04
+Loss = 1.9849e-02, PNorm = 55.2268, GNorm = 0.1803, lr_0 = 2.6708e-04
+Loss = 3.0470e-02, PNorm = 55.2382, GNorm = 0.1995, lr_0 = 2.6121e-04
+Validation auc = 0.820346
+Epoch 18
+Loss = 2.1653e-02, PNorm = 55.2496, GNorm = 0.2150, lr_0 = 2.5547e-04
+Loss = 2.4804e-02, PNorm = 55.2675, GNorm = 0.0463, lr_0 = 2.4985e-04
+Loss = 1.6780e-02, PNorm = 55.2826, GNorm = 0.1632, lr_0 = 2.4436e-04
+Loss = 2.5067e-02, PNorm = 55.2985, GNorm = 0.3720, lr_0 = 2.3899e-04
+Validation auc = 0.826840
+Epoch 19
+Loss = 6.9896e-03, PNorm = 55.3120, GNorm = 0.1909, lr_0 = 2.3322e-04
+Loss = 2.6251e-02, PNorm = 55.3183, GNorm = 0.2605, lr_0 = 2.2809e-04
+Loss = 1.9517e-02, PNorm = 55.3338, GNorm = 0.1347, lr_0 = 2.2308e-04
+Loss = 2.5235e-02, PNorm = 55.3458, GNorm = 0.9682, lr_0 = 2.1817e-04
+Validation auc = 0.821429
+Epoch 20
+Loss = 1.5396e-02, PNorm = 55.3554, GNorm = 0.3796, lr_0 = 2.1338e-04
+Loss = 1.5665e-02, PNorm = 55.3720, GNorm = 0.4936, lr_0 = 2.0869e-04
+Loss = 2.3602e-02, PNorm = 55.3828, GNorm = 0.1519, lr_0 = 2.0410e-04
+Loss = 1.8169e-02, PNorm = 55.4020, GNorm = 0.2707, lr_0 = 1.9961e-04
+Validation auc = 0.825758
+Epoch 21
+Loss = 2.6762e-02, PNorm = 55.4061, GNorm = 0.1163, lr_0 = 1.9523e-04
+Loss = 2.4187e-02, PNorm = 55.4137, GNorm = 0.1436, lr_0 = 1.9094e-04
+Loss = 1.3876e-02, PNorm = 55.4276, GNorm = 0.4136, lr_0 = 1.8674e-04
+Validation auc = 0.819264
+Epoch 22
+Loss = 3.7887e-02, PNorm = 55.4375, GNorm = 0.1633, lr_0 = 1.8223e-04
+Loss = 8.1324e-03, PNorm = 55.4440, GNorm = 0.2550, lr_0 = 1.7822e-04
+Loss = 1.5367e-02, PNorm = 55.4565, GNorm = 0.0533, lr_0 = 1.7431e-04
+Loss = 1.9060e-02, PNorm = 55.4644, GNorm = 0.0087, lr_0 = 1.7047e-04
+Validation auc = 0.825758
+Epoch 23
+Loss = 1.7600e-02, PNorm = 55.4669, GNorm = 0.0449, lr_0 = 1.6673e-04
+Loss = 1.8010e-02, PNorm = 55.4818, GNorm = 0.4858, lr_0 = 1.6306e-04
+Loss = 2.1765e-02, PNorm = 55.4920, GNorm = 0.4932, lr_0 = 1.5948e-04
+Loss = 9.0661e-03, PNorm = 55.5048, GNorm = 0.3372, lr_0 = 1.5597e-04
+Validation auc = 0.831169
+Epoch 24
+Loss = 1.1037e-02, PNorm = 55.5127, GNorm = 0.0889, lr_0 = 1.5221e-04
+Loss = 1.2082e-02, PNorm = 55.5190, GNorm = 0.0535, lr_0 = 1.4886e-04
+Loss = 1.8918e-02, PNorm = 55.5242, GNorm = 0.5904, lr_0 = 1.4559e-04
+Loss = 1.4893e-02, PNorm = 55.5265, GNorm = 0.1825, lr_0 = 1.4239e-04
+Validation auc = 0.829004
+Epoch 25
+Loss = 1.7521e-02, PNorm = 55.5381, GNorm = 0.4339, lr_0 = 1.3926e-04
+Loss = 1.6681e-02, PNorm = 55.5510, GNorm = 0.1514, lr_0 = 1.3620e-04
+Loss = 7.1846e-03, PNorm = 55.5600, GNorm = 0.0383, lr_0 = 1.3320e-04
+Validation auc = 0.831169
+Epoch 26
+Loss = 1.6307e-02, PNorm = 55.5650, GNorm = 0.0126, lr_0 = 1.3028e-04
+Loss = 1.2967e-02, PNorm = 55.5669, GNorm = 0.5497, lr_0 = 1.2741e-04
+Loss = 6.8977e-03, PNorm = 55.5698, GNorm = 0.3511, lr_0 = 1.2461e-04
+Loss = 9.1415e-03, PNorm = 55.5790, GNorm = 0.0086, lr_0 = 1.2187e-04
+Validation auc = 0.831169
+Epoch 27
+Loss = 1.7404e-02, PNorm = 55.5857, GNorm = 0.0210, lr_0 = 1.1893e-04
+Loss = 9.3028e-03, PNorm = 55.5934, GNorm = 0.2849, lr_0 = 1.1632e-04
+Loss = 1.6520e-02, PNorm = 55.6010, GNorm = 0.4081, lr_0 = 1.1376e-04
+Loss = 1.0886e-02, PNorm = 55.6055, GNorm = 0.1042, lr_0 = 1.1126e-04
+Validation auc = 0.831169
+Epoch 28
+Loss = 8.8876e-03, PNorm = 55.6103, GNorm = 0.0174, lr_0 = 1.0881e-04
+Loss = 9.2816e-03, PNorm = 55.6164, GNorm = 0.2207, lr_0 = 1.0642e-04
+Loss = 1.8869e-02, PNorm = 55.6225, GNorm = 0.1282, lr_0 = 1.0408e-04
+Loss = 9.0285e-03, PNorm = 55.6243, GNorm = 0.2257, lr_0 = 1.0179e-04
+Loss = 3.4690e-02, PNorm = 55.6250, GNorm = 0.6215, lr_0 = 1.0157e-04
+Validation auc = 0.830087
+Epoch 29
+Loss = 1.1315e-02, PNorm = 55.6330, GNorm = 0.4958, lr_0 = 1.0000e-04
+Loss = 6.4568e-03, PNorm = 55.6387, GNorm = 0.0897, lr_0 = 1.0000e-04
+Loss = 1.0802e-02, PNorm = 55.6425, GNorm = 0.5122, lr_0 = 1.0000e-04
+Validation auc = 0.831169
+Model 0 best validation auc = 0.832251 on epoch 12
+Loading pretrained parameter "encoder.encoder.0.cached_zero_vector".
+Loading pretrained parameter "encoder.encoder.0.W_i.weight".
+Loading pretrained parameter "encoder.encoder.0.W_h.weight".
+Loading pretrained parameter "encoder.encoder.0.W_o.weight".
+Loading pretrained parameter "encoder.encoder.0.W_o.bias".
+Loading pretrained parameter "ffn.1.weight".
+Loading pretrained parameter "ffn.1.bias".
+Loading pretrained parameter "ffn.4.weight".
+Loading pretrained parameter "ffn.4.bias".
+Loading pretrained parameter "ffn.7.weight".
+Loading pretrained parameter "ffn.7.bias".
+Model 0 test auc = 0.648485
+Ensemble test auc = 0.648485
+1-fold cross validation
+	Seed 0 ==> test auc = 0.648485
+Overall test auc = 0.648485 +/- 0.000000
+Elapsed time = 0:07:25
