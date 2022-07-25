@@ -74,6 +74,7 @@ In the folder entitled "checkpoints", there are 20 ChemProp checkpoints files, w
 ### Installation and dependencies for the Jupyter notebook
 
 Dependencies for successful execution of the notebook are described in the "requirements.txt" file. It is important to have Chemprop installed. Our recommended way of doing so is to follow the <a href="https://github.com/chemprop/chemprop">Official Instructions</a> using Conda: at the command line, enter:
+
 <ul>
 <li>conda create -n chemprop python=3.8</li>
 <li>conda activate chemprop</li>
@@ -81,22 +82,25 @@ Dependencies for successful execution of the notebook are described in the "requ
 <li>pip install git+https://github.com/bp-kelley/descriptastorus</li>
 <li>pip install chemprop</li>
 </ul>
+
 These commands will help install Chemprop and associated dependent Python packages (the accompanying "environment.yml" file details all of Chemprop's dependencies). In order to access Chemprop from the Jupyter notebook, assuming that Jupyter notebook has not been installed in the Chemprop environment, run the following commands at the command line:
+
 <ul>
 <li>conda activate chemprop</li>
 <li>conda install jupyter</li>
 <li>conda install notebook</li>
 <li>jupyter notebook</li>
 </ul>
-The last command should launch the Jupyter notebook. All cells in the notebook can then be executed to reproduce (in brief) the Chemprop model training and prediction steps used in the paper. This provides an integrated platform for interested readers to develop and apply their own Chemprop models to senolytic compound discovery.
+
+The last command should launch the Jupyter notebook. All cells in the notebook can then be executed to reproduce (using just one Chemprop model, and not an ensemble of 20) the Chemprop model training and prediction steps used in the paper. This provides an integrated platform for interested readers to develop and apply their own Chemprop models to senolytic compound discovery.
 
 ### Checkpoint files
 
-The checkpoint directory can also be passed directly into Chemprop (using the Jupyter notebook if one desires) to generate new predictions. For instance, for SMILES strings that are listed in a file "test.csv", please run:
+The checkpoint directory, which contains all 20 pre-trained Chemprop models used for the final predictions made in our study, can also be passed directly into Chemprop (using the Jupyter notebook if one desires) to generate new predictions. For instance, for SMILES strings that are listed in a file "test.csv", please run:
 ```sh
 chemprop_predict --test_path test.csv --checkpoint_dir "./checkpoints" --preds_path "predictions.csv" --features_generator rdkit_2d_normalized --no_features_scaling
 ```
-This will tell chemprop_predict to use all of the checkpoints (in the same directory as the Jupyter notebook) to make predictions of senolytic activity. The resulting prediction scores are the average of all 20 models. 
+This will tell chemprop_predict to use all of the checkpoints (in the same directory as the Jupyter notebook) to make predictions of senolytic activity. The resulting prediction scores are the average of all 20 Chemprop models in the ensemble. 
 
 <!-- CONTACT -->
 ## Contact
