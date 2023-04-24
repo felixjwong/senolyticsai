@@ -12,7 +12,7 @@
 <br />
 <p align="center">
 
-  <h3 align="center">Discovering senolytics with deep learning</h3>
+  <h3 align="center">Discovering small-molecule senolytics with deep neural networks</h3>
 
   <p align="center">
     Supporting code for the paper
@@ -35,7 +35,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About the Code
 
-The files in this repository contain a Jupyter notebook and final Chemprop checkpoints for the models described in the paper "Discovering senolytics with deep learning". The code requires <a href="https://github.com/chemprop/chemprop">ChemProp</a> and Python with the appropriate packages installed. In particular, please ensure that at least the following two packages are installed:
+The files in this repository contain a Jupyter notebook and final Chemprop checkpoints for the models described in the paper "Discovering small-molecule senolytics with deep neural networks". The code requires <a href="https://github.com/chemprop/chemprop">ChemProp</a> and Python with the appropriate packages installed. In particular, please ensure that at least the following two packages are installed:
 <ul>
 <li><a href="https://github.com/chemprop/chemprop">Chemprop</a> (commit 9c8ff4074bd89b93f43a21adc49b458b0cab9e7f was used)</li>
 <li><a href="https://www.rdkit.org/">RDKit</a> (version 2021.09.01 was used)</li>
@@ -47,7 +47,7 @@ Details on installation, the packages required, and the Jupyter notebook code pl
 
 ### Jupyter notebook
 
-The Jupyter notebook is the main accompanying file to the paper, "Discoverying senolytics with deep learning". It reproduces the Chemprop model training and prediction steps used in the paper, thereby providing an integrated platform for interested readers to develop and apply their own Chemprop models to senolytic compound discovery.
+The Jupyter notebook is the main accompanying file to the paper, "Discovering small-molecule senolytics with deep neural networks", published in <i>Nature Aging</i> (2023). It reproduces the Chemprop model training and prediction steps used in the paper, thereby providing an integrated platform for interested readers to develop and apply their own Chemprop models to senolytic compound discovery.
 
 Key dependencies for the Jupyter notebook:
 
